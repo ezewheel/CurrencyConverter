@@ -1,0 +1,19 @@
+<header>
+    <a [routerLink]="['/']">
+        <img src="logo.svg" alt="Logo" id="logo">
+    </a>
+    <nav>
+        @if (isLogged()) {
+            @if (isSubscribed()) {
+                <a class="navButton" [routerLink]="['/converter']" routerLinkActive="active" >Conversor</a>
+            }
+            <a class="navButton" [routerLink]="['/history']" routerLinkActive="active" >Historial</a>
+            <a class="navButton" [routerLink]="['/subscriptions']" routerLinkActive="active" >Suscripciones</a>
+            <a id="logoutButton" (click)="logout()" routerLinkActive="active" >Cerrar sesión</a>
+        } @else {
+            <a id="registerButton" [routerLink]="['/register']" routerLinkActive="active" >Registrarse</a>
+            <a id="loginButton" [routerLink]="['/login']" routerLinkActive="active" >Iniciar sesión</a>
+        }
+    </nav>
+</header>
+<router-outlet/>

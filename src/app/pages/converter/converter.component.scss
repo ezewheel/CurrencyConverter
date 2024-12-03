@@ -1,0 +1,104 @@
+@use './../../../../public/styles/colors.scss';
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$main-color;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+    #converter {
+        -moz-box-shadow: 0 0 3px #ccc;
+        -webkit-box-shadow: 0 0 3px #ccc;
+        box-shadow: 0 0 7px #ccc;
+        width: 50%;
+        height: 40%;
+        background-color: white;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        p {
+            font-size: 0.9rem;
+            color: colors.$secondary-font-color;
+            margin: 0 0 0.2rem 0;
+        }
+
+        .amount {
+            input {
+                height: 2rem;
+                width: 20rem;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid colors.$underline-color;
+            }
+        }
+
+        .from, .to {
+            select {
+                height: 2rem;
+                width: 6rem;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid colors.$underline-color;
+            }
+        }
+
+        button {
+            margin: 0.9rem 0 0 0;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: colors.$main-color;
+            color: colors.$main-font-color;
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sliding-background {
+    position: absolute;
+    bottom: 0;
+    background: url('../../../../public/stardust.webp');
+    height: 50vh;
+    width: 100vw;
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    mask-image: linear-gradient(to top, black, transparent);
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        background-position : 0px 0px;
+    }
+    100% {
+        background-position : 0px -798px;
+    }
+}
+
+.invalid {
+    border-bottom: 1px solid red !important;
+}
+
+#Error {
+    color: red;
+    font-size: 0.9rem;
+    position: absolute;
+    margin: 8rem 0 0 0;
+}

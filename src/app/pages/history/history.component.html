@@ -1,0 +1,29 @@
+<main>
+    <div id="container">
+        <div id="history">
+            <table>
+                <thead>
+                    <td>De<hr></td>
+                    <td>A<hr></td>
+                    <td>Cantidad<hr></td>
+                    <td>Resultado<hr></td>
+                    <td>Fecha<hr></td>
+                </thead>
+                <tbody>
+                    @for (conversion of conversionHistoryService.conversions; track $index) {
+                        <tr>
+                            <td class="row"> {{ conversion.fromCurrency }} </td>
+                            <td class="row"> {{ conversion.toCurrency}} </td>
+                            <td class="row"> {{ conversion.amount }} </td>
+                            <td class="row"> {{ conversion.result }} </td>
+                            <td class="row"> {{ conversion.date }} </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sliding-background"></div>
+    </div>
+</main>

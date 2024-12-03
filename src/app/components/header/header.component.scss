@@ -1,0 +1,53 @@
+@use './../../../../public/styles/colors.scss';
+
+header {
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 1rem auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    width: 2.5rem;
+    transition: 0.3s;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    
+    a {
+        color: colors.$main-font-color;
+        text-decoration: none;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    a:hover:not(.active) {
+        background: rgb(255, 255, 255, 0.3);
+    }
+
+    a:hover:is(.active) {
+        background: rgb(255, 255, 255, 0.1);
+    }
+
+    .active {
+        font-weight: bold;
+    }
+}
+
+#loginButton, #logoutButton {
+    border: 1px solid;
+    box-sizing: border-box;
+}

@@ -1,0 +1,56 @@
+@use './../../../../public/styles/colors.scss';
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$main-color;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    color: colors.$main-font-color;
+
+    h1 {
+        font-size: 4rem;
+        font-weight: bold;
+    }
+}
+
+.sliding-background {
+    position: absolute;
+    bottom: 0;
+    background: url('../../../../public/stardust.webp');
+    height: 50vh;
+    width: 100vw;
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    mask-image: linear-gradient(to top, black, transparent);
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        background-position : 0px 0px;
+    }
+    100% {
+        background-position : 0px -798px;
+    }
+}
+
+#registerButton {
+    color: colors.$main-font-color;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    transition: 0.3s;
+    border: 1px solid;
+    z-index: 1000;
+}
+
+#registerButton:hover {
+    background: rgb(255, 255, 255, 0.3);
+}

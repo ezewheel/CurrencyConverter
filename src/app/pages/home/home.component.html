@@ -1,0 +1,12 @@
+<main>
+    <div class="hero-text">
+        <h1>Currency Converter</h1>
+        <p>Con más de 10.000 usuarios suscritos, Currency Converter es el conversor de monedas por excelencia</p>
+        @if (!isLogged()) {
+            <a id="registerButton" [routerLink]="['/register']">Únete ahora</a>
+        }
+    </div>
+    <div class="container">
+        <div class="sliding-background"></div>
+    </div>
+</main>

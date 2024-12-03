@@ -1,0 +1,25 @@
+<main>
+    <div id="container">
+        <div id="subscriptions">
+            @if (!isSubscribed()) {
+                <p id="noSubscriptions">No tienes ninguna suscripción</p>
+            } @else {
+                <p>Tu suscripción es del tipo {{getSubscriptionType()}}</p>
+            }
+            @if (getSubscriptionType() !== "Pro"){
+                <p>Selecciona una nueva suscripción:</p>
+                <form #subscriptionForm="ngForm" (ngSubmit)="subscribe(subscriptionForm)">
+                    <select ngModel name="subscriptionType">
+                        @for (subscription of subscriptionService.subscriptions; track $index) {
+                            <option value={{subscription}}>{{subscription}}</option>
+                        }
+                    </select>
+                    <button type="submit">Enviar</button>
+                </form>
+            }
+        </div>
+    </div>
+    <div class="container">
+        <div class="sliding-background"></div>
+    </div>
+</main>

@@ -1,0 +1,39 @@
+<main>
+    <div id="container">
+        <form id="converter" #convertForm="ngForm" (ngSubmit)="convert(convertForm)">
+            <div class="amount">
+                <p>Convertir</p>
+                <input type="number" name="amount" id="amount" placeholder="Introducir cantidad" ngModel [ngClass]="{invalid: invalidAmount}">
+            </div>
+            <div class="from">
+                <p>De</p>
+                <select name="fromCurrency" [(ngModel)] = "selectedFromCurrency">
+                    @for (currency of converterService.currencies; track $index) {
+                        <option value={{currency.symbol}}>{{currency.symbol}}</option>
+                    }
+                </select>
+            </div>
+            <div class="to">
+                <p>A</p>
+                <select name="toCurrency" [(ngModel)] = "selectedToCurrency">
+                    @for (currency of converterService.currencies; track $index) {
+                        <option value={{currency.symbol}}>{{currency.symbol}}</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <button type="submit">Convertir</button>
+            </div>
+        </form>
+        @if (invalidAmount) {
+            <p id="Error">Por favor introduzca una cantidad válida</p>
+        }
+
+        @if (limitExceeded) {
+            <p id="Error">Límite de conversiones excedido</p>
+        }
+    </div>
+    <div class="container">
+        <div class="sliding-background"></div>
+    </div>
+</main>

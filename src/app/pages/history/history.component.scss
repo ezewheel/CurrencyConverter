@@ -1,0 +1,63 @@
+@use './../../../../public/styles/colors.scss';
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$main-color;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    #history {
+        -moz-box-shadow: 0 0 3px #ccc;
+        background-color: white;
+        -webkit-box-shadow: 0 0 3px #ccc;
+        box-shadow: 0 0 7px #ccc;
+        border-radius: 1rem;
+        padding: 3rem;
+        width: 50%;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        color: colors.$secondary-font-color;
+    }
+
+    thead {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    td {
+        height: 2rem;
+        text-align: center;
+    }
+
+    
+}
+
+.sliding-background {
+    position: absolute;
+    bottom: 0;
+    background: url('../../../../public/stardust.webp');
+    height: 50vh;
+    width: 100vw;
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    mask-image: linear-gradient(to top, black, transparent);
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        background-position : 0px 0px;
+    }
+    100% {
+        background-position : 0px -798px;
+    }
+}
